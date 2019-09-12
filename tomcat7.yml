@@ -1,0 +1,21 @@
+---
+- hosts: ubuntu
+  become: yes
+  tasks: 
+  - name: remove dir
+    command: "rm -rf /var/logs"
+    tags:
+      - prep:
+  - name: create tomcat user
+    user:
+      name: tomcat
+      state: present
+  - name: create tomcat group
+    group:
+      name: tomcat
+      state: present
+  - apt: 
+      name: tomcat8
+      state: present
+      update_cache: yes
+

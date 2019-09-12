@@ -1,0 +1,8 @@
+---
+- hosts: node01
+  become: yes
+  tasks: 
+  - apt:
+      name: python3
+      state: present
+      update_cache: yes
